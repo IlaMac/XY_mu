@@ -1,0 +1,18 @@
+{
+ "options": [
+  [
+   "h5pp:with_eigen",
+   "True"
+  ],
+  [
+   "h5pp:with_spdlog",
+   "True"
+  ]
+ ],
+ "root": {
+  "name": null,
+  "version": null,
+  "user": null,
+  "channel": null
+ }
+}
