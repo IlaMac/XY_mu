@@ -162,6 +162,7 @@ int main(int argc, char *argv[]){
 
     //Mainloop
     mainloop(Lattice, MCp, Hp, my_beta, my_ind, PTp, PTroot, directory_parameters_temp, NSTART);
+    MPI_Barrier(MPI_COMM_WORLD);
 
     t_tot.toc();
 

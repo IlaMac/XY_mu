@@ -34,7 +34,7 @@ struct Measures{
 void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vector<Node> &Site);
 //void staggered_magnetization(struct Measures &mis, const std::vector<Node> &Site);
 //void energy(struct Measures &mis, struct H_parameters &Hp, const std::vector<Node> &Site);
-void save_lattice(const std::vector<Node> &Site, const fs::path & directory_write, std::string configuration);
+void save_lattice(const std::vector<Node> Site, const fs::path & directory_write, std::string configuration);
 
 
 #endif //MEASURES_H

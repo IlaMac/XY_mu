@@ -42,7 +42,7 @@ struct MC_parameters{
     double lbox_theta; //length of the box for the uniform distribution of theta (polar transformation of Psi --> phase)
 };
 
-void initialize_lattice(const std::vector<Node> &Site, const fs::path & directory_read, int RESTART, struct H_parameters &Hp);
+void initialize_lattice(std::vector<Node> &Site, const fs::path & directory_read, int RESTART, struct H_parameters &Hp);
 void initialize_Hparameters(struct H_parameters &Hp, const fs::path & directory_parameters);
 void initialize_MCparameters(struct MC_parameters &MCp, const fs::path & directory_parameters);
 

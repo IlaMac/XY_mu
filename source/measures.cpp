@@ -74,12 +74,12 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
             if(n>0){
                 mis.v_density+=n;
                 //Mstag= 1/N \sum_i q_i (-1)^(x_i+y_i)
-                mis.mstag+= (1 - 2*(i%2));
+                mis.mstag+= (1 - 2*((ix+iy)%2));
 //                mis->Vortices[i]=1;
             }
             else if (n<0){
                 mis.av_density+=n;
-                mis.mstag+= -1*(1 - 2*(i%2));
+                mis.mstag+= -1*(1 - 2*((ix+iy)%2));
 //                mis->Vortices[i]=-1;
             }
 
@@ -92,7 +92,7 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
 
 
 
-void save_lattice(const std::vector<Node> &Site, const fs::path & directory_write, std::string configuration){
+void save_lattice(const std::vector<Node> Site, const fs::path & directory_write, std::string configuration){
 
     std::string sPsi;
     sPsi= std::string("Psi_")+ configuration + std::string(".bin");
@@ -101,9 +101,9 @@ void save_lattice(const std::vector<Node> &Site, const fs::path & directory_writ
     FILE *fPsi= nullptr;
 
     if((fPsi=fopen(psi_init_file.c_str(), "w"))) {
-        for (auto & s: Site) {
-            fwrite(s.Psi.data(), sizeof(struct O2), 1, fPsi);
-        }
+//        for (auto & s: Site) {
+            fwrite(&Site, sizeof(struct O2), N, fPsi);
+//        }
         fclose(fPsi);
     }
 

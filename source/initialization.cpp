@@ -56,9 +56,10 @@ void initialize_MCparameters(struct MC_parameters &MCp, const fs::path & directo
 
 }
 
-void initialize_lattice(const std::vector<Node> &Site, const fs::path & directory_read, int RESTART, struct H_parameters &Hp){
+void initialize_lattice(std::vector<Node> &Site, const fs::path & directory_read, int RESTART, struct H_parameters &Hp){
 
     int i, alpha;
+    std::vector<Node> Sitefread= Site;
     fs::path psi_init_file = directory_read / "Psi_restart.bin";
 
     if(RESTART==1){
@@ -73,9 +74,8 @@ void initialize_lattice(const std::vector<Node> &Site, const fs::path & director
         FILE *fPsi= nullptr;
 
         if(fPsi=fopen(psi_init_file.c_str(), "r")) {
-            for(auto & s : Site){
-                fread(s.Psi, sizeof(struct O2), 1, fPsi);
-            }
+            fread(&Site, sizeof(struct O2), N, fPsi);
+            Site=Sitefread;
             fclose(fPsi);
         }
     }else{

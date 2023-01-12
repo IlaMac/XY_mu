@@ -40,13 +40,6 @@ Preset environment variables:
 
   NINJA_STATUS="[run %r|beg %s|fin %f|tot %t|rate %o|time %e]:"
 
-fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
-Use '--' to separate paths from revisions, like this:
-'git <command> [<revision>...] -- [<file>...]'
-fatal: your current branch 'master' does not have any commits yet
-fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
-Use '--' to separate paths from revisions, like this:
-'git <command> [<revision>...] -- [<file>...]'
 -- | GL HOST INFO:
 -- |----------------
 -- | perbacco
@@ -119,8 +112,8 @@ zlib/1.2.12: Already installed!
 hdf5/1.12.1: Already installed!
 spdlog/1.10.0: Already installed!
 h5pp/1.10.0: Already installed!
-conanfile.txt: Generator 'CMakeDeps' calling 'generate()'
 conanfile.txt: WARN: Using the new toolchains and generators without specifying a build profile (e.g: -pr:b=default) is discouraged and might cause failures and unexpected behavior
+conanfile.txt: Generator 'CMakeDeps' calling 'generate()'
 conanfile.txt: Generator txt created conanbuildinfo.txt
 conanfile.txt: Aggregating env generators
 conanfile.txt: Generated conaninfo.txt
