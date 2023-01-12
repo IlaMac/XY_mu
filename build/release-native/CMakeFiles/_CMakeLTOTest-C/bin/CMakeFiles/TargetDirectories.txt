@@ -1,4 +1,0 @@
-/home/ilaria/Desktop/XY_mu/build/release-native/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir
-/home/ilaria/Desktop/XY_mu/build/release-native/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir
-/home/ilaria/Desktop/XY_mu/build/release-native/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/edit_cache.dir
-/home/ilaria/Desktop/XY_mu/build/release-native/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/rebuild_cache.dir
