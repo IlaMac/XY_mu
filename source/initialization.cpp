@@ -86,7 +86,7 @@ void initialize_lattice(std::vector<Node> &Site, const fs::path & directory_read
                 polar_to_cartesian(Site[i].Psi);
             }
         }
-        else if(Hp.init==1) { //disordered paramagnetic state
+        else if(Hp.init!=1) { //disordered paramagnetic state
             for (i = 0; i < N; i++) {
                 Site[i].Psi.r = 1;
                 Site[i].Psi.t = rn::uniform_real_box(0, C_TWO_PI);;

@@ -3,7 +3,14 @@ Xy model with an additional potential term tuning the vortex chemical potential 
 
 
 
+# REQUIREMENTS
 
+* Openmpi (`module load ...`)
+* conan (`pip install conan`)
+* CMake version 3.23 or above (`module load ...`)
+* Ninja (`module load ...`)
+
+For practical purposes, the module load commands are in the file `~/.bashrc`.
 
 # COMPILE WITH
 
