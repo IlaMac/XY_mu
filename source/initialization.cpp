@@ -43,6 +43,7 @@ void initialize_MCparameters(struct MC_parameters &MCp, const fs::path & directo
         if((fin=fopen(mc_init_file.c_str(), "r"))) {
             fscanf(fin, "%d", &MCp.nmisu);
             fscanf(fin, "%d", &MCp.tau);
+            fscanf(fin, "%d", &MCp.transient);
             fscanf(fin, "%d", &MCp.n_autosave);
 	        fscanf(fin, "%lf", &MCp.lbox_theta);
             fclose(fin);
