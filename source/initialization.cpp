@@ -48,7 +48,8 @@ void initialize_MCparameters(struct MC_parameters &MCp, const fs::path & directo
             fclose(fin);
         }
     }else{
-        MCp.nmisu=1000;
+        MCp.nmisu=3000;
+        MCp.transient=1000;
         MCp.tau=32;
         MCp.n_autosave=20; //not used now
         MCp.lbox_theta=C_PI*0.25;

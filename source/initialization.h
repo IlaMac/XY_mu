@@ -36,6 +36,7 @@ struct H_parameters{
 
 struct MC_parameters{
     /*These values are externally given by an input file*/
+    int transient;
     int tau; // estimate of the auto-correlation time
     int nmisu; //total number of independent measures
     int n_autosave; //frequency at which intermediate configuration are saved
