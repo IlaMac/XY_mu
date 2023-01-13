@@ -50,8 +50,8 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
             /**HELICITY MODULUS**/
             C1= (O2prod(Site[i].Psi, Site[ipx].Psi) - O2prod(Site[ipxpy].Psi, Site[ipy].Psi));
             S1= (O2vprod(Site[ipx].Psi, Site[i].Psi) + O2vprod(Site[ipy].Psi, Site[ipxpy].Psi));
-            mis.DH_Dd+= ( Hp.J*(O2prod(Site[ipx].Psi, Site[i].Psi)) - 2*Hp.mu*((C1*C1) - (Ip*S1)) );
-            mis.D2H_Dd2+= ( Hp.J*(O2vprod(Site[ipx].Psi, Site[i].Psi)) -2*Hp.mu*(Ip*C1) );
+            mis.jd+= ( Hp.J*(O2prod(Site[ipx].Psi, Site[i].Psi)) - 2*Hp.mu*((C1*C1) - (Ip*S1)) );
+            mis.ip+= ( Hp.J*(O2vprod(Site[ipx].Psi, Site[i].Psi)) -2*Hp.mu*(Ip*C1) );
 
             /**VORTEX DENSITY**/
             /*Circuitation*/

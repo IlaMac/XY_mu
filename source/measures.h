@@ -19,8 +19,8 @@ struct Measures{
     double E=0; //Energy
     double mstag=0; //staggered magnetization
     //Binder cumulant U=<m⁴>/(3*<m²>²)
-    double DH_Dd=0; //1st derivative in the twisted phase (paramagnetic current)
-    double D2H_Dd2=0; //2nd derivative in the twisted phase (diamagnetic response function)
+    double ip=0; //1st derivative in the twisted phase (paramagnetic current)
+    double jd=0; //2nd derivative in the twisted phase (diamagnetic response function)
     double v_density=0.;
     double av_density=0.;
 
