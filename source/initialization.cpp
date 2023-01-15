@@ -91,6 +91,7 @@ void initialize_lattice(std::vector<Node> &Site, const fs::path & directory_read
                 Site[i].Psi.r = 1;
                 Site[i].Psi.t = rn::uniform_real_box(0, C_TWO_PI);;
                 polar_to_cartesian(Site[i].Psi);
+                std::cout<< "phase:"<<  Site[i].Psi.t<<std::endl;
             }
         }
     }

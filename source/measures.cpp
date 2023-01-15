@@ -40,7 +40,6 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
                 } else if (vec == 1) {
                     nn_ip = ipy;
                 }
-                std::cout<<"here"<<std::endl;
                 h_Kinetic -= Hp.J * (O2prod(Site[i].Psi, Site[nn_ip].Psi));
             }
 
@@ -83,7 +82,6 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
                 mis.mstag+= -1*(1 - 2*((ix+iy)%2));
 //                mis->Vortices[i]=-1;
             }
-            std::cout<<"Site i: "<<i<<  " h_kin: "<< h_Kinetic <<  " h_mu: "<< h_mu << " Rank: "<< mis.my_rank<< std::endl;
 
         }
     }
