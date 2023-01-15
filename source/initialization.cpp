@@ -83,7 +83,7 @@ void initialize_lattice(std::vector<Node> &Site, const fs::path & directory_read
             for (i = 0; i < N; i++) {
                 Site[i].Psi.t = 0.;
                 polar_to_cartesian(Site[i].Psi);
-                std::cout<< " Site[i].Psi.x: "<< Site[i].Psi.x << " Site[i].Psi.y: "<< Site[i].Psi.y << " Site[i].Psi.t: "<< Site[i].Psi.t<< std::endl;
+//                std::cout<< " Site[i].Psi.x: "<< Site[i].Psi.x << " Site[i].Psi.y: "<< Site[i].Psi.y << " Site[i].Psi.t: "<< Site[i].Psi.t<< std::endl;
 
             }
         }
@@ -91,9 +91,7 @@ void initialize_lattice(std::vector<Node> &Site, const fs::path & directory_read
             for (i = 0; i < N; i++) {
                 Site[i].Psi.t = rn::uniform_real_box(0, C_TWO_PI);;
                 polar_to_cartesian(Site[i].Psi);
-                std::cout<< " Site[i].Psi.x: "<< Site[i].Psi.x << " Site[i].Psi.y: "<< Site[i].Psi.y << " Site[i].Psi.t: "<< Site[i].Psi.t<< std::endl;
-
-                std::cout<< "phase:"<<  Site[i].Psi.t<<std::endl;
+//                std::cout<< " Site[i].Psi.x: "<< Site[i].Psi.x << " Site[i].Psi.y: "<< Site[i].Psi.y << " Site[i].Psi.t: "<< Site[i].Psi.t<< std::endl;
             }
         }
     }
