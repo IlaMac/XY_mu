@@ -90,6 +90,8 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
     mis.av_density/=N;
     mis.v_density/=N;
     mis.E= h_Kinetic + h_mu;
+    std::cout<<"Energy meas: "<<mis.E<<  " h_kin: "<< h_Kinetic <<  " h_mu: "<< h_mu << " Rank: "<< mis.my_rank<< std::endl;
+
 }
 
 
