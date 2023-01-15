@@ -206,7 +206,7 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
     file.setCompressionLevel(0);
 //    // Register the compound type
     h5pp::hid::h5t MY_HDF5_MEASURES_TYPE = H5Tcreate(H5T_COMPOUND, sizeof(Measures));
-    H5Tinsert(MY_HDF5_MEASURES_TYPE, "E", HOFFSET(Measures, E), H5T_NATIVE_DOUBLE);
+    H5Tinsert(MY_HDF5_MEASURES_TYPE, "Energy", HOFFSET(Measures, Energy), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "mstag", HOFFSET(Measures, mstag), H5T_NATIVE_DOUBLE);
 //    H5Tinsert(MY_HDF5_MEASURES_TYPE, "h_ip", HOFFSET(Measures, h_ip), H5T_NATIVE_DOUBLE);
 //    H5Tinsert(MY_HDF5_MEASURES_TYPE, "h_jd", HOFFSET(Measures, h_jd), H5T_NATIVE_DOUBLE);

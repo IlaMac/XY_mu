@@ -87,7 +87,9 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
     }
 
     mis.mstag/=N;
-    mis.E= h_Kinetic + h_mu;
+    mis.av_density/=N;
+    mis.v_density/=N;
+    mis.Energy= h_Kinetic + h_mu;
 }
 
 
