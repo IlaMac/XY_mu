@@ -84,6 +84,8 @@ double local_HPsi(struct O2 &Psi, int ix, int iy, H_parameters &Hp, const std::v
         }
         h_Kinetic -= Hp.J * O2prod(Site[nn_ip].Psi, Psi);
         h_Kinetic -= Hp.J * O2prod(Psi, Site[nn_im].Psi);
+        std::cout<< "O2prod: "<< O2prod(Site[nn_ip].Psi, Psi) << " Site[nn_ip].Psi.x: "<< Site[nn_ip].Psi.x << " Site[nn_ip].Psi.t: "<< Site[nn_ip].Psi.t<< std::endl;
+
     }
 
     //current circulating on the plaquette p1
