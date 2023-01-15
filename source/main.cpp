@@ -241,10 +241,11 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
         mis.my_rank=PTp.rank;
         t_measures.toc();
         MPI_Barrier(MPI_COMM_WORLD);
-
+        std::cout<<"B Energy main: "<<mis.E<< " Rank: "<< mis.my_rank<< std::endl;
         t_h5pp.tic();
         file.appendTableRecords(mis, "Measurements");
         t_h5pp.toc();
+        std::cout<<"A Energy main: "<<mis.E<< " Rank: "<< mis.my_rank<< std::endl;
 
         MPI_Barrier(MPI_COMM_WORLD);
 
