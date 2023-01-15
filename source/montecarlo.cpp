@@ -101,6 +101,7 @@ double local_HPsi(struct O2 &Psi, int ix, int iy, H_parameters &Hp, const std::v
     h_mu= -Hp.mu*((Ip1*Ip1) + (Ip2*Ip2) + (Ip3*Ip3) + (Ip4*Ip4));
 
     h_tot=  h_Kinetic + h_mu;
+    std::cout<< "Montecarlo h_tot: "<< h_tot << std::endl;
     return h_tot;
 }
 
