@@ -54,9 +54,7 @@ double local_HPsi(struct O2 &Psi, int ix, int iy, H_parameters &Hp, const std::v
 
     double Ip1, Ip2, Ip3, Ip4;
     double h_Kinetic=0., h_mu, h_tot;
-    double gauge_phase1, gauge_phase2;
     int nn_ip, nn_im;
-    int i=ix +Lx*(iy);
 
     int ip=(ix == Lx-1 ? 0: ix+1);
     int ipx= ip + Lx*(iy);
