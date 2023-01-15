@@ -80,13 +80,11 @@ double local_HPsi(struct O2 &Psi, int ix, int iy, H_parameters &Hp, const std::v
             nn_ip = ipy;
             nn_im = imy;
         }
-//        h_Kinetic -= Hp.J * cos( Psi.t - Site[nn_ip].Psi.t);
-//        h_Kinetic -= Hp.J * cos(Site[nn_im].Psi.t -Psi.t);
         h_Kinetic -= Hp.J * O2prod(Site[nn_ip].Psi, Psi);
         h_Kinetic -= Hp.J * O2prod(Psi, Site[nn_im].Psi);
-        if( (O2prod(Site[nn_ip].Psi, Psi) -  cos( Psi.t - Site[nn_ip].Psi.t)) != 0){
-            std::cout<< "They differ!"<< "O2prod(Site[nn_ip].Psi, Psi): "<< (O2prod(Site[nn_ip].Psi, Psi) -  cos( Psi.t - Site[nn_ip].Psi.t))<<std::endl;
-            }
+//        if( (O2prod(Site[nn_ip].Psi, Psi) -  cos( Psi.t - Site[nn_ip].Psi.t)) != 0){
+//            std::cout<< "They differ!"<< "O2prod(Site[nn_ip].Psi, Psi): "<< (O2prod(Site[nn_ip].Psi, Psi) -  cos( Psi.t - Site[nn_ip].Psi.t))<<std::endl;
+//            }
 
     }
 
@@ -102,10 +100,10 @@ double local_HPsi(struct O2 &Psi, int ix, int iy, H_parameters &Hp, const std::v
     //current circulating on the plaquette p4
     Ip4=( O2vprod( Psi, Site[imy].Psi) + O2vprod( Site[imy].Psi, Site[ipxmy].Psi)
             + O2vprod( Site[ipxmy].Psi, Site[ipx].Psi) + O2vprod( Site[ipx].Psi, Psi) );
-
-    if( (O2vprod( Site[ipxmy].Psi, Site[ipx].Psi) -  sin( Site[ipx].Psi.t - Site[ipxmy].Psi.t)) != 0){
-        std::cout<< "They differ!"<< "O2prod(Site[nn_ip].Psi, Psi): "<< (O2vprod( Site[ipxmy].Psi, Site[ipx].Psi) -  sin( Site[ipx].Psi.t - Site[ipxmy].Psi.t))<<std::endl;
-    }
+//
+//    if( (O2vprod( Site[ipxmy].Psi, Site[ipx].Psi) -  sin( Site[ipx].Psi.t - Site[ipxmy].Psi.t)) == 0){
+//        std::cout<< "They differ!"<< "O2prod(Site[nn_ip].Psi, Psi): "<< (O2vprod( Site[ipxmy].Psi, Site[ipx].Psi) -  sin( Site[ipx].Psi.t - Site[ipxmy].Psi.t))<<std::endl;
+//    }
     h_mu= -Hp.mu*((Ip1*Ip1) + (Ip2*Ip2) + (Ip3*Ip3) + (Ip4*Ip4));
 
     h_tot=  h_Kinetic + h_mu;
