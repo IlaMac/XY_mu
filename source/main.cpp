@@ -206,10 +206,10 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
     file.setCompressionLevel(0);
 //    // Register the compound type
     h5pp::hid::h5t MY_HDF5_MEASURES_TYPE = H5Tcreate(H5T_COMPOUND, sizeof(Measures));
-    H5Tinsert(MY_HDF5_MEASURES_TYPE, "Energy", HOFFSET(Measures, Energy), H5T_NATIVE_DOUBLE);
+    H5Tinsert(MY_HDF5_MEASURES_TYPE, "E", HOFFSET(Measures, E), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "mstag", HOFFSET(Measures, mstag), H5T_NATIVE_DOUBLE);
-//    H5Tinsert(MY_HDF5_MEASURES_TYPE, "h_ip", HOFFSET(Measures, h_ip), H5T_NATIVE_DOUBLE);
-//    H5Tinsert(MY_HDF5_MEASURES_TYPE, "h_jd", HOFFSET(Measures, h_jd), H5T_NATIVE_DOUBLE);
+    H5Tinsert(MY_HDF5_MEASURES_TYPE, "DH_Dd", HOFFSET(Measures, DH_Dd), H5T_NATIVE_DOUBLE);
+    H5Tinsert(MY_HDF5_MEASURES_TYPE, "D2H_Dd2", HOFFSET(Measures, D2H_Dd2), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "v_density", HOFFSET(Measures, v_density), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "av_density", HOFFSET(Measures, av_density), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "rank", HOFFSET(Measures, my_rank), H5T_NATIVE_INT);
@@ -243,7 +243,9 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
         t_h5pp.tic();
         file.appendTableRecords(mis, "Measurements");
         t_h5pp.toc();
+
         MPI_Barrier(MPI_COMM_WORLD);
+
 
         std::ofstream restart_file(directory_write_temp+"/restart-0");
         restart_file << n <<std::endl;
@@ -257,7 +259,7 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
         }
 
         //Parallel Tempering swap
-        parallel_temp(mis.Energy, my_beta, my_ind, PTp, PTroot);
+        parallel_temp(mis.E, my_beta, my_ind, PTp, PTroot);
         //Files and directory
         directory_write_temp=directory_parameters_temp+"/beta_"+std::to_string(my_ind);
         file = h5pp::File(directory_write_temp+"/Output.h5", h5pp::FilePermission::READWRITE);

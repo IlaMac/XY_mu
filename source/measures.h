@@ -16,10 +16,10 @@ struct Measures{
 
 /*******THE ORDER SHOULD BE THE SAME OF THE H5T INSERT REGISTRATION**************/
 
-    double Energy=0; //Energy
+    double E=0; //Energy
     double mstag=0; //staggered magnetization
-//    double h_ip=0; //1st derivative in the twisted phase (paramagnetic current)
-//    double h_jd=0; //2nd derivative in the twisted phase (diamagnetic response function)
+    double DH_Dd=0; //1st derivative in the twisted phase (paramagnetic current)
+    double D2H_Dd2=0; //2nd derivative in the twisted phase (diamagnetic response function)
     double v_density=0.;
     double av_density=0.;
 
