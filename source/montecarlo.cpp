@@ -24,7 +24,6 @@ void metropolis(const std::vector<Node> &Site, struct MC_parameters &MCp, struct
             d_theta = rn::uniform_real_box(-MCp.lbox_theta, MCp.lbox_theta);
             NewPsi.t = fmod(OldPsi.t + d_theta, C_TWO_PI);
             polar_to_cartesian(NewPsi);
-//NON FUNGE POLAR TO CARTESIAN
             oldE = local_HPsi(OldPsi, ix, iy, Hp, Site);
             newE = local_HPsi(NewPsi, ix, iy, Hp, Site);
             minus_deltaE = (oldE - newE);
@@ -81,10 +80,12 @@ double local_HPsi(struct O2 &Psi, int ix, int iy, H_parameters &Hp, const std::v
             nn_ip = ipy;
             nn_im = imy;
         }
-        h_Kinetic -= Hp.J * cos( Psi.t - Site[nn_ip].Psi.t);
-        h_Kinetic -= Hp.J * cos(Site[nn_im].Psi.t -Psi.t);
-//        h_Kinetic -= Hp.J * O2prod(Site[nn_ip].Psi, Psi);
-//        h_Kinetic -= Hp.J * O2prod(Psi, Site[nn_im].Psi);
+//        h_Kinetic -= Hp.J * cos( Psi.t - Site[nn_ip].Psi.t);
+//        h_Kinetic -= Hp.J * cos(Site[nn_im].Psi.t -Psi.t);
+        h_Kinetic -= Hp.J * O2prod(Site[nn_ip].Psi, Psi);
+        h_Kinetic -= Hp.J * O2prod(Psi, Site[nn_im].Psi);
+        if(O2prod(Site[nn_ip].Psi, Psi) !=  cos( Psi.t - Site[nn_ip].Psi.t)){
+            std::cout<< "They differ!"<< std::endl;}
 
     }
 
@@ -104,7 +105,6 @@ double local_HPsi(struct O2 &Psi, int ix, int iy, H_parameters &Hp, const std::v
     h_mu= -Hp.mu*((Ip1*Ip1) + (Ip2*Ip2) + (Ip3*Ip3) + (Ip4*Ip4));
 
     h_tot=  h_Kinetic + h_mu;
-    std::cout<< "h_kin: "<< h_Kinetic << " h_mu: "<< h_mu<< std::endl;
     return h_tot;
 }
 

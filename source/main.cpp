@@ -225,8 +225,6 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
     int nsave= (int) MCp.nmisu/MCp.n_autosave;
     int  ns= NSTART/nsave;
 
-    std::cout<< "J:" << Hp.J<< " mu: "<< Hp.mu<<std::endl;
-
     for (n = NSTART; n<MCp.nmisu; n++) {
         for (t = 0; t < MCp.tau; t++) {
             t_metropolis.tic();
@@ -242,7 +240,6 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
         mis.my_rank=PTp.rank;
         t_measures.toc();
         MPI_Barrier(MPI_COMM_WORLD);
-        std::cout<<"Main Energy main: "<<mis.E<< " Rank: "<< mis.my_rank<< std::endl;
         t_h5pp.tic();
         file.appendTableRecords(mis, "Measurements");
         t_h5pp.toc();
@@ -268,7 +265,6 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
         file = h5pp::File(directory_write_temp+"/Output.h5", h5pp::FilePermission::READWRITE);
     }
     save_lattice(Site, directory_write_temp, std::string("final"));
-    std::cout<< "J:" << Hp.J<< " mu: "<< Hp.mu<<std::endl;
 
     t_h5pp.print_measured_time_w_percent();
     t_measures.print_measured_time_w_percent();
