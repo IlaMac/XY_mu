@@ -235,10 +235,12 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
         //Measures
         t_measures.tic();
         mis.reset();
+
         all_measures(mis, Hp, Site);
 
         mis.my_rank=PTp.rank;
         t_measures.toc();
+        MPI_Barrier(MPI_COMM_WORLD);
 
         t_h5pp.tic();
         file.appendTableRecords(mis, "Measurements");
