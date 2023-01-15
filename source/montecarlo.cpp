@@ -25,6 +25,7 @@ void metropolis(const std::vector<Node> &Site, struct MC_parameters &MCp, struct
             NewPsi.t = fmod(OldPsi.t + d_theta, C_TWO_PI);
             NewPsi.r = OldPsi.r;
             polar_to_cartesian(NewPsi);
+            std::cout<< "New phase: "<< NewPsi.t << " Old phase: "<< OldPsi.t<<std::endl;
             oldE = local_HPsi(OldPsi, ix, iy, Hp, Site);
             newE = local_HPsi(NewPsi, ix, iy, Hp, Site);
             minus_deltaE = (oldE - newE);
@@ -101,7 +102,7 @@ double local_HPsi(struct O2 &Psi, int ix, int iy, H_parameters &Hp, const std::v
     h_mu= -Hp.mu*((Ip1*Ip1) + (Ip2*Ip2) + (Ip3*Ip3) + (Ip4*Ip4));
 
     h_tot=  h_Kinetic + h_mu;
-    std::cout<< "Montecarlo h_tot: "<< h_tot << std::endl;
+    std::cout<< "h_kin: "<< h_Kinetic << " h_mu: "<< h_mu<< std::endl;
     return h_tot;
 }
 

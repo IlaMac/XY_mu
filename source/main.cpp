@@ -225,6 +225,8 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
     int nsave= (int) MCp.nmisu/MCp.n_autosave;
     int  ns= NSTART/nsave;
 
+    std::cout<< "J:" << Hp.J<< " mu: "<< Hp.mu<<std::endl;
+
     for (n = NSTART; n<MCp.nmisu; n++) {
         for (t = 0; t < MCp.tau; t++) {
             t_metropolis.tic();
