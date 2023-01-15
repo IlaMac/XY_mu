@@ -53,7 +53,7 @@ void metropolis(const std::vector<Node> &Site, struct MC_parameters &MCp, struct
 double local_HPsi(struct O2 &Psi, int ix, int iy, H_parameters &Hp, const std::vector<Node> &Site) {
 
     double Ip1, Ip2, Ip3, Ip4;
-    double h_Kinetic, h_mu, h_tot;
+    double h_Kinetic=0., h_mu, h_tot;
     double gauge_phase1, gauge_phase2;
     int nn_ip, nn_im;
     int i=ix +Lx*(iy);
