@@ -12,7 +12,6 @@ struct O2 {
   _FPTYPE x; /* X */
   _FPTYPE y; /* Y */
   _FPTYPE t; /* angle */
-  _FPTYPE r; /* modulus */
 };
 
 #define O2sum(__sum,__s1,__s2) {			\
@@ -58,14 +57,13 @@ struct O2 {
     }
 
 #define polar_to_cartesian(__s) {			\
-	(__s).x=((__s).r)*cos((__s).t);			\
-	(__s).y=((__s).r)*sin((__s).t);			\
+	(__s).x=cos((__s).t);			\
+	(__s).y=sin((__s).t);			\
     }
 
 #define cartesian_to_polar(__s) {			        \
     (__s).t=atan2((__s).y,(__s).x);                     \
     (__s).t=((__s).t>=0?(__s).t:(__s).t+C_TWO_PI);	\
-    (__s).r=sqrt( ((__s).y*(__s).y) + ((__s).x*(__s).x));	\
 }
 
 #endif

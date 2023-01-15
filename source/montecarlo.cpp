@@ -23,7 +23,6 @@ void metropolis(const std::vector<Node> &Site, struct MC_parameters &MCp, struct
             NewPsi = Site[i].Psi;
             d_theta = rn::uniform_real_box(-MCp.lbox_theta, MCp.lbox_theta);
             NewPsi.t = fmod(OldPsi.t + d_theta, C_TWO_PI);
-            NewPsi.r = OldPsi.r;
             polar_to_cartesian(NewPsi);
 //NON FUNGE POLAR TO CARTESIAN
             oldE = local_HPsi(OldPsi, ix, iy, Hp, Site);
