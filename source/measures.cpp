@@ -53,6 +53,9 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
             mis.D2H_Dd2+= ( Hp.J*(O2prod(Site[ipx].Psi, Site[i].Psi)) - 2*Hp.mu*((C1*C1) - (Ip*S1)) );
             mis.DH_Dd+= ( Hp.J*(O2vprod(Site[ipx].Psi, Site[i].Psi)) -2*Hp.mu*(Ip*C1) );
 
+//            std::cout<< "O2prod: " << O2prod(Site[i].Psi, Site[ipx].Psi) << " cos: "<< cos(Site[i].Psi.t - Site[ipx].Psi.t)<<std::endl;
+//            std::cout<< "O2vprod: " << O2vprod(Site[ipx].Psi, Site[i].Psi) << " cos: "<< sin(Site[i].Psi.t - Site[ipx].Psi.t)<<std::endl;
+
             /**VORTEX DENSITY**/
             /*Circuitation*/
             n=0.;
@@ -75,12 +78,10 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
                 mis.v_density+=n;
                 //Mstag= 1/N \sum_i q_i (-1)^(x_i+y_i)
                 mis.mstag+= (1 - 2*((ix+iy)%2));
-//                mis->Vortices[i]=1;
             }
             else if (n<0){
                 mis.av_density+=n;
                 mis.mstag+= -1*(1 - 2*((ix+iy)%2));
-//                mis->Vortices[i]=-1;
             }
 
         }

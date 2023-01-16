@@ -8,11 +8,11 @@ void initialize_Hparameters(struct H_parameters &Hp, const fs::path & directory_
 
     fs::path hp_init_file = directory_parameters / "HP_init.txt";
 
-    Hp.mu=0.15;
+    Hp.mu=0.25;
     Hp.J=1;
-    Hp.b_low=0.1;
-    Hp.b_high=10.0;
-    Hp.init=2;
+    Hp.b_low=0.5;
+    Hp.b_high=0.7;
+    Hp.init=1;
 
     if(fs::exists(hp_init_file)){
         FILE *fin= nullptr;
@@ -27,11 +27,11 @@ void initialize_Hparameters(struct H_parameters &Hp, const fs::path & directory_
         }
     }else{
 
-        Hp.mu=0.15;
+        Hp.mu=0.25;
         Hp.J=1;
-        Hp.b_low=0.1;
-        Hp.b_high=10.0;
-        Hp.init=2;
+        Hp.b_low=0.5;
+        Hp.b_high=0.7;
+        Hp.init=1;
     }
 
 }
@@ -48,7 +48,7 @@ void initialize_MCparameters(struct MC_parameters &MCp, const fs::path & directo
             fclose(fin);
         }
     }else{
-        MCp.nmisu=20;
+        MCp.nmisu=2000;
         MCp.tau=32;
         MCp.n_autosave=20; //not used now
         MCp.lbox_theta=C_PI*0.25;
