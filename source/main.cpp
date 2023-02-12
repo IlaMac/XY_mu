@@ -210,6 +210,8 @@ void mainloop(const std::vector<Node> &Site, struct MC_parameters &MCp, struct H
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "mstag", HOFFSET(Measures, mstag), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "DH_Dd", HOFFSET(Measures, DH_Dd), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "D2H_Dd2", HOFFSET(Measures, D2H_Dd2), H5T_NATIVE_DOUBLE);
+    H5Tinsert(MY_HDF5_MEASURES_TYPE, "old_jd", HOFFSET(Measures, old_jd), H5T_NATIVE_DOUBLE);
+    H5Tinsert(MY_HDF5_MEASURES_TYPE, "old_ip", HOFFSET(Measures, old_ip), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "v_density", HOFFSET(Measures, v_density), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "av_density", HOFFSET(Measures, av_density), H5T_NATIVE_DOUBLE);
     H5Tinsert(MY_HDF5_MEASURES_TYPE, "rank", HOFFSET(Measures, my_rank), H5T_NATIVE_INT);

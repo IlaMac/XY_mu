@@ -20,6 +20,8 @@ struct Measures{
     double mstag=0; //staggered magnetization
     double DH_Dd=0; //1st derivative in the twisted phase (paramagnetic current)
     double D2H_Dd2=0; //2nd derivative in the twisted phase (diamagnetic response function)
+    double old_jd=0;
+    double old_ip=0.;
     double v_density=0.;
     double av_density=0.;
 

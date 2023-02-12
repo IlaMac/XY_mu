@@ -52,7 +52,8 @@ void all_measures(struct Measures &mis, struct H_parameters &Hp, const std::vect
             S1= (O2vprod(Site[ipx].Psi, Site[i].Psi) + O2vprod(Site[ipy].Psi, Site[ipxpy].Psi));
             mis.D2H_Dd2+= ( Hp.J*(O2prod(Site[ipx].Psi, Site[i].Psi)) - 2*Hp.mu*((C1*C1) - (Ip*S1)) );
             mis.DH_Dd+= ( Hp.J*(O2vprod(Site[ipx].Psi, Site[i].Psi)) -2*Hp.mu*(Ip*C1) );
-
+            mis.old_jd+=Hp.J*(O2prod(Site[ipx].Psi, Site[i].Psi));
+            mis.old_ip+= Hp.J*(O2vprod(Site[ipx].Psi, Site[i].Psi));
 //            std::cout<< "O2prod: " << O2prod(Site[i].Psi, Site[ipx].Psi) << " cos: "<< cos(Site[i].Psi.t - Site[ipx].Psi.t)<<std::endl;
 //            std::cout<< "O2vprod: " << O2vprod(Site[ipx].Psi, Site[i].Psi) << " cos: "<< sin(Site[i].Psi.t - Site[ipx].Psi.t)<<std::endl;
 
