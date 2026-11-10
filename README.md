@@ -1,27 +1,56 @@
 # XY_mu
-Xy model with an additional potential term tuning the vortex chemical potential independently from the coupling constant J. 
 
+A C++ Monte Carlo simulation of the two-dimensional XY model with an additional potential term that tunes the vortex chemical potential independently of the coupling constant `J`.
 
+## Features
 
-# REQUIREMENTS
+- XY-lattice Monte Carlo simulation with Metropolis updates
+- Measurements of energy, staggered magnetization, vortex density, and related observables
+- MPI parallel tempering
+- HDF5 output through [h5pp](https://github.com/DavidAce/h5pp)
+- CMake presets for release and debug builds
 
-* Openmpi (`module load ...`)
-* conan (`pip install conan`)
-* CMake version 3.23 or above (`module load ...`)
-* Ninja (`module load ...`)
+## Requirements
 
-For practical purposes, the module load commands are in the file `~/.bashrc`.
+- C++17 compiler
+- CMake 3.19 or newer (required by the supplied presets)
+- Ninja
+- MPI implementation and OpenMP support (enabled in the supplied preset)
+- h5pp and its dependencies, discovered or provisioned as configured by CMake/Conan
 
-# COMPILE WITH
-
-Shell commands:
+## Build
 
 ```bash
-cmake --list-presets                  <--- show available cmake configuration presets in CMakePresets.json
-cmake --build --list-presets          <--- show available cmake build presets in CMakePresets.json
-cmake --preset=release-native         <--- configure this cmake preset
-cmake --build --preset=release-native <--- build this cmake preset
+cmake --list-presets
+cmake --build --list-presets
+cmake --preset=release-native
+cmake --build --preset=release-native
 ```
 
-The file `CMakePresets.json` contains instructions for ways to invoke the file `CMakeLists.txt`.
-For instance, it provides a preset of compilation flags for different machines or environments (i.e. Linux, Windows, Tetralith...).
+The executable target is `XY_mu` and is built in `build/release-native/`. For a debug build with AddressSanitizer, use the `debug-asan` preset. The presets and their dependency setup are defined in `CMakePresets.json`.
+
+## Run
+
+The program takes the lattice side length and output and temporary-output directories. Optional positional arguments set restart mode and seed:
+
+```bash
+mpirun -np <process-count> build/release-native/XY_mu \
+  <L> <output-directory> <temporary-directory> [restart-mode] [seed]
+```
+
+`L` specifies an `L × L` lattice. Restart and seed arguments are optional. The program writes measurements to HDF5 and saves lattice configurations in the output directory. Parameter and restart-file conventions are implemented in `source/initialization.cpp` and `source/main.cpp`.
+
+## Tests
+
+After configuring and building, run the registered tests with:
+
+```bash
+ctest --test-dir build/release-native --output-on-failure
+```
+
+## Repository layout
+
+- `source/` — XY model simulation, initialization, and measurement code
+- `tests/` — test programs registered with CTest
+- `cmake/` — build and dependency support
+
